@@ -16,6 +16,7 @@ socket.onmessage = function (event) {
         keyText.textContent = "Your key: " + key;
     } else {
         text = event.data;
+        text = text.replaceAll(" ", "\n");
         messageText.textContent = text
     }
 
