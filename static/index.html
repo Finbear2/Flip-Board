@@ -10,13 +10,23 @@
 </head>
 
 <body>
-    <div id="clock"></div>
+    <div class="center">
+        <div class="card">
+            <p id="keyText">Your key: 9382</p>
+        </div>
+    </div>
 
-    <p id="keyText">Key</p>
+    <div id="area">
+        <div id="clock"></div>
+    </div>
 
-    <input type="text" id="keyInput" placeholder="Key" />
-    <input type="text" id="messageInput" placeholder="Enter message" />
-    <button onclick="sendMessage()">Send</button>
+    <div class="column" style="position: absolute; bottom: 10px; left: 10px;">
+        <input type="text" id="keyInput" placeholder="Key" style="width: 125px;" />
+        <div class="row">
+            <input type="text" id="messageInput" placeholder="Enter message" style="width: 250px;" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flipclock@^1/dist/FlipClock.umd.js"></script>
     <script src="index.js"></script>

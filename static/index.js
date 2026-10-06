@@ -36,7 +36,7 @@ socket.onmessage = function (event) {
         key = event.data;
 
         let keyText = document.getElementById("keyText");
-        keyText.textContent = key;
+        keyText.textContent = "Your key: " + key;
     } else {
         text = event.data;
         face.targetValue.value = text;
