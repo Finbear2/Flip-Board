@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Client</title>
+</head>
+
+<body>
+    <h1 id="messageText">WebSocket Client</h1>
+    <p id="keyText">Key</p>
+
+    <input type="text" id="keyInput" placeholder="Key" />
+    <input type="text" id="messageInput" placeholder="Enter message" />
+    <button onclick="sendMessage()">Send</button>
+    <pre id="messages"></pre>
+
+    <script>
+        let socket = new WebSocket("ws://127.0.0.1:8080/ws");
+        let key = "";
+        let text = "";
+        let messages = 0;
+
+        socket.onopen = function (event) {
+            document.getElementById("messages").textContent += "Connected to WebSocket server\n";
+        };
+
+        socket.onmessage = function (event) {
+            document.getElementById("messages").textContent += "Received: " + event.data + "\n";
+            if (messages == 0) {
+                key = event.data;
+                let text = document.getElementById("keyText");
+                text.textContent = key;
+            } else {
+                text = event.data;
+                let messageText = document.getElementById("messageText");
+                messageText.textContent = text;
+            }
+            messages++
+        };
+
+        socket.onclose = function (event) {
+            document.getElementById("messages").textContent += "Disconnected from WebSocket server\n";
+        };
+
+        function sendMessage() {
+            let message = document.getElementById("messageInput").value;
+            let key = document.getElementById("keyInput").value;
+            socket.send(JSON.stringify({
+                message: message,
+                key: key
+            }));
+            document.getElementById("messageInput").value = "";
+        }
+    </script>
+</body>
+
+</html>
