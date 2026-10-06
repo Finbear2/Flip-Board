@@ -1,0 +1,54 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+input {
+    padding: 5px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(226, 225, 224);
+    border-radius: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.5s;
+    border: 1px solid rgba(190, 188, 183, 0);
+}
+
+input:hover {
+    transform: translate(0px, -5px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 13px 24px; 
+    background-color: rgb(237, 237, 237);
+    border: 1px solid rgb(216, 215, 212);
+}
+
+button {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    background-color: rgb(141, 202, 122);
+    border-radius: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: 0.5s;
+    border: 1px solid rgba(190, 188, 183, 0);
+    color: white;
+}
+
+button:hover {
+    transform: translate(0px, -5px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 13px 24px;
+    background-color: rgb(158, 218, 154);
+    border: 1px solid rgb(144, 214, 129);
+    color: rgb(255, 255, 255);
+}
+
+button:active {
+    transition: 0.3s;
+    transform: translate(0px, 3px);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 12px;
+    background-color: rgb(124, 192, 120);
+    border: 1px solid rgb(180, 223, 170);
+    color: rgb(255, 255, 255);
+}
