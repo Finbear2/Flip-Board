@@ -2,30 +2,7 @@ let socket = new WebSocket("ws://127.0.0.1:8080/ws");
 let key = "";
 let text = "";
 let messages = 0;
-
-const parent = document.querySelector("#clock");
-
-const face = FlipClock.alphanumeric({
-    value: FlipClock.faceValue(""),
-    targetValue: FlipClock.faceValue(""),
-    sequencer: {
-        stopAfterChanges: 3
-    },
-    skipChars: 5
-});
-
-const clock = FlipClock.flipClock({
-    parent,
-    timer: 200,
-    face: face,
-    theme: FlipClock.theme({
-        dividers: " ",
-        css: FlipClock.css({
-            animationDuration: "100ms",
-            fontSize: "5rem"
-        })
-    })
-});
+let messageText = document.getElementById("messageText");
 
 socket.onopen = function (event) {
     document.getElementById("messages").textContent += "Connected to WebSocket server\n";
@@ -39,10 +16,7 @@ socket.onmessage = function (event) {
         keyText.textContent = "Your key: " + key;
     } else {
         text = event.data;
-        face.targetValue.value = text;
-
-        // Restart the sequencer so it actually flips toward the new target.
-        clock.start();
+        messageText.textContent = text
     }
 
     messages++;
@@ -62,4 +36,4 @@ function sendMessage() {
     document.getElementById("messageInput").value = "";
 }
 
-face.targetValue.value = "HELLO"
+displayMessage("HELLO")

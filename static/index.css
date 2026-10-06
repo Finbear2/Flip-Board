@@ -83,7 +83,7 @@ button:active {
     border-radius: 30px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: 0.5s;
-    font-size: 15px;
+    font-size: 30px;
     background-color: rgb(237, 237, 237);
     border: 1px solid rgb(216, 215, 212);
     color: rgb(65, 57, 50);
@@ -92,4 +92,15 @@ button:active {
 .area {
     margin: 20px;
     padding: 20px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+}
+
+.area h1 {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+#keyText {
+    font-size: 16px;
 }
